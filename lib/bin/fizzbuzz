@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+
+from fizzbuzz import fizzbuzz
+from argparse import ArgumentParser
+
+def main():
+  parser = ArgumentParser(description='fizzbuzz option')
+  parser.add_argument('n', help='target number')
+  args = parser.parse_args()
+  print('\n'.join(fizzbuzz(int(args.n))))
+
+if __name__ == '__main__':
+  main()
