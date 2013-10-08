@@ -35,3 +35,7 @@ FizzBuzz
 # License
 
 MIT.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/futoase/fizzbuzz/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
