@@ -7,11 +7,6 @@ try:
 except ImportError:
   print("Please install setuptools.")
 
-try:
-  from distutils.command.build_py import build_py_2to3 as build_py
-except ImportError:
-  from distutils.command.build_py import build_py
-
 import sys
 
 libdir = "lib"
