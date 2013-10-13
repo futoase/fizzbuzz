@@ -30,6 +30,37 @@ Fizz
 13
 14
 FizzBuzz
+
+> bizzbuzz 15
+1
+2
+Bizz
+4
+Buzz
+Bizz
+7
+8
+Bizz
+Buzz
+11
+Bizz
+13
+14
+BizzBuzz
+```
+
+# setup.py option
+
+## build
+
+```
+> python setup.py build
+```
+
+## cleanup
+
+```
+> python setup.py clean --all
 ```
 
 # License
