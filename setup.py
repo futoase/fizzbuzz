@@ -26,6 +26,7 @@ from fizzbuzz import __info__
 
 setup_options = __info__
 setup_options.update({
+  "install_requires": open('requirements.txt').read().splitlines(),
   "scripts": find_scripts(bindir),
   "packages": find_packages(libdir),
   "package_dir": {"": libdir},
