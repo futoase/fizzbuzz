@@ -7,25 +7,28 @@ try:
 except ImportError:
   print("Please install setuptools.")
 
+def find_scripts(scripts_path):
+  base_path = os.path.abspath(scripts_path)
+  return list(map(lambda path: os.path.join(scripts_path, path), 
+           filter(lambda file_name: os.path.isfile(
+             os.path.join(base_path, file_name)), os.listdir(base_path)
+         )))
+
+import os
 import sys
 
 libdir = "lib"
+bindir = os.path.join(libdir, "bin")
+
 sys.path.insert(0, libdir)
 
-import fizzbuzz as pkg
+from fizzbuzz import __info__
 
-setup_options = {
-  "scripts": ["lib/bin/fizzbuzz"],
-  "name": pkg.__name__,
-  "version": pkg.__version__,
-  "description": pkg.__description__,
-  "author": pkg.__author__,
-  "author_email": pkg.__author_email__,
-  "license": pkg.__license__,
-  "url": pkg.__url__,
+setup_options = __info__
+setup_options.update({
+  "scripts": find_scripts(bindir),
   "packages": find_packages(libdir),
   "package_dir": {"": libdir},
-  "classifiers": pkg.__classifiers__
-}
+})
 
 setup(**setup_options)
