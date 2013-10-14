@@ -17,19 +17,21 @@ def find_scripts(scripts_path):
 import os
 import sys
 
-libdir = "lib"
+libdir = "lib/fizzbuzz"
 bindir = os.path.join(libdir, "bin")
 
 sys.path.insert(0, libdir)
 
-from fizzbuzz import __info__
+import info
+import version
 
-setup_options = __info__
-setup_options.update({
-  "install_requires": open('requirements.txt').read().splitlines(),
-  "scripts": find_scripts(bindir),
-  "packages": find_packages(libdir),
-  "package_dir": {"": libdir},
-})
+setup_options = info.INFO
+setup_options["version"] = version.VERSION
+setup_options.update(dict(
+  install_requires = open('requirements.txt').read().splitlines(),
+  scripts          = find_scripts(bindir),
+  packages         = find_packages(libdir),
+  package_dir      = {"": libdir},
+))
 
 setup(**setup_options)
